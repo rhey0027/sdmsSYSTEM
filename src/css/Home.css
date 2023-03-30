@@ -1,0 +1,43 @@
+.header {
+    background-color: rgba(0, 49, 0);
+    height: 320px;
+    width: 100%;
+}
+.sdms {
+    font-size: 90px;
+}
+.psdms {
+    letter-spacing: 3px;
+}
+.home_btn button {
+    padding: 15px;
+    width: 200px;
+    border: none;
+    display: block;
+    margin-bottom: 10px;
+    background-color: rgb(8, 94, 8);
+    color: #fff;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+.home_btn button:hover {
+    background-color: green;
+}
+.homepara {
+    margin: 0 auto;
+    font-size: 18px;
+    width: 80%;
+    margin-top: 40px;
+}
+.footer, .footercont {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 49, 0);
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    letter-spacing: 3px;
+}

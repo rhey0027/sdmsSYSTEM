@@ -1,0 +1,65 @@
+.header_contact {
+    background-color: rgba(0, 49, 0);
+    height: 80px;
+    line-height: 80px;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_contact .student {
+    color: yellow;
+}
+.contact_form input {
+    border: 1px solid green;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.contact_form input:focus {
+    outline: none;
+}
+.contact_form textarea {
+    height: 150px;
+    border: 1px solid green;
+    width: 100%;
+}
+.contact_form textarea:focus {
+    outline: none;
+}
+.btn_Submit {
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    color: #fff;
+    background-color: rgb(8, 94, 8);
+    height: 40px;
+    width: 100px;
+    border: none;
+    float: right;
+}
+.btn_Submit:hover {
+    background-color: green;
+}
+.follow {
+    font-weight: bolder;
+}
+  .icon-container > :not(:last-child) {
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  .icon-container > * {
+    font-size: 2rem;
+    transition: all 0.2s ease;
+  }
+  .icon-container >*:hover {
+    transform: translateY(-10px);
+    color: rgb(16, 65, 170);
+  }
+@media (min-width: 578px) {
+    .contact_info p {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+  

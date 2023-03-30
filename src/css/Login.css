@@ -1,0 +1,67 @@
+.header_login {
+  background-color: rgba(0, 49, 0);
+  height: 80px;
+  line-height: 80px;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header_login .student {
+  color: yellow;
+}
+.form_container {
+  margin-top: 80px;
+  border: 2px solid rgba(0, 49, 0);
+  height: 350px;
+  background-color: lightgrey;
+}
+.form_container h4 {
+  padding-left: 10px;
+  width: 100%;
+  background-color: rgb(10, 80, 10);
+  color: white;
+  height: 50px;
+  line-height: 50px;
+}
+.form_container input {
+  display: block;
+  padding: 8px;
+  border: none;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.form_container input:focus {
+  outline: none;
+}
+ .log_btn {
+  cursor: pointer;
+ }
+.btn_clear,
+.btn_login {
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: rgb(8, 94, 8);
+  height: 40px;
+  line-height: 40px;
+  width: 100px;
+  border: none;
+}
+.btn_clear:hover {
+  background-color: green;
+}
+#btn_login:hover {
+  background-color: green;
+}
+.error_login  {
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-right: 80px;
+}
+.reset_key  {
+  text-align: center;
+  margin-top: 10px;
+}
