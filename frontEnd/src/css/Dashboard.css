@@ -1,0 +1,10 @@
+.header_profile {
+  background-color: rgba(0, 49, 0);
+  height: 80px;
+  line-height: 80px;
+  letter-spacing: 2px;
+  display: flex;
+  /* font-weight: lighter; */
+  justify-content: center;
+  align-items: center;
+}
