@@ -1,5 +1,7 @@
 import axios from 'axios';
 import{ useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 
 function AddStudent() {
 
@@ -10,6 +12,7 @@ function AddStudent() {
     image: ""
   })
 
+  const navigate = useNavigate();
   const handleSubmit =(e) => {
     e.preventDefault();
     const formdata = new FormData();
@@ -18,15 +21,19 @@ function AddStudent() {
     formdata.append('password', data.password);
     formdata.append('image', data.image);
     axios.post('http://localhost:4000/create', formdata)
-    .then(res => console.log(res))
+    .then(res => {
+      navigate('/student')
+      console.log(res)
+    })
     .catch(err => console.log(err))
   }
 
   return (
     <div className="formContainer mt-12 sm:mx-auto sm:w-full sm:max-w-md">
       <div className="bg-white py-8 px-4 sm:rounded-lg sm:px-10 shadow-lg">
+        <div> 
         <h1 className="text-3xl text-center font-semibold">Add Student</h1>
-
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="">
               <div className="">
@@ -128,7 +135,7 @@ function AddStudent() {
           {/* button submission */}
           <div className="submitBtn mt-2">
             <button
-              type="create"
+              type="submit"
               name="button"
               className="relative w-full flex justify-center bg-indigo-400 text-white py-3 px-4 border border-transparent text-md focus:outline-none rounded-md hover:bg-indigo-600 duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >

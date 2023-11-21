@@ -5,14 +5,7 @@ import React from "react";
 const Student = (props) => {
   return (
     <>
-      <div className="header_profile text-center">
-        <span>
-          <h1 className="student fw-lighter fs-3 mx-3">Student</h1>
-        </span>
-        <span>
-          <h1 className="dms fw-lighter fs-3 text-light"> Database Management System</h1>
-        </span>
-      </div>
+    
       <div className="navlinks">
         <div className="container-md p-2">
           <div className="text-center">

@@ -4,6 +4,8 @@ import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../css/Home.css'
+
 
 const Login = () => {
   const [type, setType ] = useState('password')
@@ -24,24 +26,21 @@ const Login = () => {
       setIcon(faEyeSlash)
     }
   };
-
-  // const [ email, setEmail ] = useState('')
-  // const [ password, setPassword ] = useState('')
   const [ values, setValues ] = useState({
     email: '',
     password: ''
 });
 
-
+  axios.defaults.withCredentials = true;
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post('http://localhost:4000/login', values)
    .then( res => {
       if(res.data.Status === 'Success') {
-        navigate('/dashboard');          
+            navigate('/dashboard')
       }else {
         setError(res.data.Error)
-      }
+      }  
     })
     .catch( err => console.log(err))
 
@@ -49,7 +48,7 @@ const Login = () => {
   return (
 
     <div className="flex flex-col header">
-      <div className="mt-6 text-center">
+      <div className="mt-6 text-center sdms">
       <p className="psdms fw-lighter fs-2 text-light">STUDENT DATABASE MANAGEMENT SYSTEM</p>
       </div>
       {/* container for form submission starts here */}

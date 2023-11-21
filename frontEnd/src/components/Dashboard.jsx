@@ -1,9 +1,30 @@
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import '../css/Dashboard.css';
-
+import { useEffect } from 'react';
+import axios from 'axios'; 
 
 const Dashboard = () => {
+
+  const navigate = useNavigate();
+  axios.withCredentials = true;
+  useEffect(() => {
+    axios.get('http://localhost/dashboard')
+    .then( res => {
+      if(res.data.Status === 'Success'){
+        navigate('/dashboard')
+      } else {
+        navigate('/login')
+      }
+    })
+  },[])
+  const handleLogout = () => {
+    axios.get('http://localhost:4000/logout')
+    .then( res => {
+      navigate('/home1')
+    })
+    .catch( err => console.log(err))
+  }
 
   return (
     <div class="container-fluid">
@@ -17,7 +38,7 @@ const Dashboard = () => {
             >
               <li>
               <Link
-                  to="/home"
+                  to="/"
                   data-bs-toggle="collapse"
                   class="nav-link px-0 align-middle text-white text-decoration-none"
                 >
@@ -62,7 +83,7 @@ const Dashboard = () => {
                   class="nav-link px-0 align-middle text-white text-decoration-none"
                 >
                   <i class="fs-4 bi-power"></i>{" "}
-                  <span class="ms-1 d-none d-sm-inline">Logout</span>{" "}
+                  <span onClick={handleLogout} class="ms-1 d-none d-sm-inline">Logout</span>{" "}
                 </a>
                 <ul
                   class="collapse show nav flex-column ms-1"

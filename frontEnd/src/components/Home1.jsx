@@ -19,16 +19,16 @@ const Home1 = () => {
         <p className="psdms fw-lighter fs-2 text-light">STUDENT DATABASE MANAGEMENT SYSTEM</p>
         <div className='home_btn text'>
           <button className="studentportal" onClick={handleLoginClick}>
-            STUDENT PORTAL
+            ADMIN
           </button>
           <button className="contact" onClick={handleClearClick}>
-            CONTACT US
+            Student Portal
           </button>
         </div>
         </div>
         <div>
           <p className="homepara w-75 text-center mt-lg-5 mt-sm-0">
-            We encourage our students to use their <span className='home_para text-danger'>RAYLAND Email Accounts</span>. These
+            We encourage our students to use their <span className='home_para text-danger'>SDMS Email Accounts</span>. These
             accounts are powered by Google. The students will have their own
             personalized email address format:
             lastname.middlename.firstname@dev.com.
