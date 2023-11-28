@@ -5,11 +5,12 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import Profile from "./components/Profile";
+import StudentProfile from "./components/StudentProfile";
 import Student from "./components/Student";
 import AddStudent from "./components/AddStudent";
 import StudentUpdate from "./components/StudentUpdate";
 import Home1 from './components/Home1';
+import StudentLogin from "./components/StudentLogin";
 
 
 function App() {
@@ -18,13 +19,14 @@ function App() {
       <Routes>
          <Route path="/" element={<Dashboard/>}>
            <Route path="" element={<Home/>}></Route>
-           <Route path="profile" element={<Profile/>}></Route>
+           <Route path="profile" element={<StudentProfile/>}></Route>
            <Route path="student" element={<Student/>}></Route>
            <Route path="create" element={<AddStudent/>}></Route>
            <Route path="/studentUpdate/:id" element={<StudentUpdate/>}></Route>
          </Route>
          <Route path="/login" element={<Login/>}></Route>
          <Route path="/home1" element={<Home1 />}></Route>
+         <Route path="/studentlogin" element={<StudentLogin />}></Route>
       </Routes>
         <Footer />
     </BrowserRouter>

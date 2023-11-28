@@ -7,6 +7,7 @@ function StudentUpdate() {
 
   const [data, setData ]= useState({
     name: "",
+    course: "",
     email: "",
   })
 
@@ -16,6 +17,7 @@ function StudentUpdate() {
     axios.get('http://localhost:4000/get/' + id)
     .then(res => {
       setData({...data, name: res.data.Result[0].name,
+        course: res.data.Result[0].course,
         email: res.data.Result[0].email,  
       })
     })
@@ -23,7 +25,6 @@ function StudentUpdate() {
   },[])
   const handleSubmit =(e) => {
     e.preventDefault();
-   
     axios.put('http://localhost:4000/update/' + id, data)
     .then(res => {
       if(res.data.Status === 'Success') {
@@ -57,6 +58,19 @@ function StudentUpdate() {
                   />
                 </div>
                 <label className="block text-sm tracking-wide font-semibold mb-2">
+                  Course
+                </label>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    name="course"
+                    onChange={e => setData({ ...data, course: e.target.value})} value={data.course}
+                    placeholder="Type your course here"
+                    required
+                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
+                  />
+                </div>
+                <label className="block text-sm tracking-wide font-semibold mb-2">
                   Email
                 </label>
                 <div className="mb-3">
@@ -69,76 +83,12 @@ function StudentUpdate() {
                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
                   />
                 </div>
-                {/* <label className="block text-sm tracking-wide font-semibold mb-2">
-                  Year Level
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="yearlevel"
-                    onChange={e => setData({ ...data, yearlevel: e.target.value})}
-                    placeholder="Year level"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
                 <span className="absolute flex cursor-pointer text-gray-500 right-5 bottom-3">
                 </span>
               </div>
-                {/* <label className="flex flex-col text-sm tracking-wide font-semibold mb-2">
-                  Course
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="course"
-                    onChange={e => setData({ ...data, course: e.target.value})}
-                    placeholder="course taken"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
-                {/* <label className="block text-sm tracking-wide font-semibold mb-2">
-                  Password
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    name="password"
-                    onChange={e => setData({ ...data, password: e.target.value})}
-                    placeholder="password"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
-                {/* <label className="block text-sm tracking-wide font-semibold mb-2">
-                  Select an image
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="file"
-                    onChange={e => setData({ ...data, image: e.target.files[0]})}
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
-                {/* <label className="block text-sm tracking-wide font-semibold mb-2">
-                  Phone Number
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="number"
-                    name="phonenumber"
-                    onChange={e => setData({ ...data, phonenumber: e.target.value})}
-                    placeholder="contact number"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
                 <span className="absolute flex cursor-pointer text-gray-500 right-5 bottom-3">
                 </span>
           </div>
-          {/* { isLoading && <Loader />} */}
-          {/* button submission */}
           <div className="submitBtn mt-2">
             <button
               type="submit"
@@ -148,7 +98,6 @@ function StudentUpdate() {
               Update record
             </button>
           </div>
-          {/* <span className='text-red-500 text-center flex flex-col rounded-md w-full font-bold text-xl p-2'>{error}</span> */}
         </form>
       </div>
     </div>

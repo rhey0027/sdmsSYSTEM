@@ -9,22 +9,24 @@ function AddStudent() {
     name: "",
     email: "",
     password: "",
+    course: "",
     image: ""
   })
 
   const navigate = useNavigate();
+
   const handleSubmit =(e) => {
     e.preventDefault();
     const formdata = new FormData();
     formdata.append('name', data.name);
     formdata.append('email', data.email);
     formdata.append('password', data.password);
+    formdata.append('course', data.course);
     formdata.append('image', data.image);
     axios.post('http://localhost:4000/create', formdata)
     .then(res => {
       navigate('/student')
-      console.log(res)
-    })
+     })
     .catch(err => console.log(err))
   }
 
@@ -63,35 +65,9 @@ function AddStudent() {
                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
                   />
                 </div>
-                {/* <label className="block text-sm tracking-wide font-semibold mb-2">
-                  Year Level
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="yearlevel"
-                    onChange={e => setData({ ...data, yearlevel: e.target.value})}
-                    placeholder="Year level"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
                 <span className="absolute flex cursor-pointer text-gray-500 right-5 bottom-3">
                 </span>
               </div>
-                {/* <label className="flex flex-col text-sm tracking-wide font-semibold mb-2">
-                  Course
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="course"
-                    onChange={e => setData({ ...data, course: e.target.value})}
-                    placeholder="course taken"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
                 <label className="block text-sm tracking-wide font-semibold mb-2">
                   Password
                 </label>
@@ -106,6 +82,19 @@ function AddStudent() {
                   />
                 </div>
                 <label className="block text-sm tracking-wide font-semibold mb-2">
+                  Course
+                </label>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    name="course"
+                    onChange={e => setData({ ...data, course: e.target.value})}
+                    placeholder="course"
+                    required
+                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
+                  />
+                </div>
+                <label className="block text-sm tracking-wide font-semibold mb-2">
                   Select an image
                 </label>
                 <div className="mb-3">
@@ -115,24 +104,9 @@ function AddStudent() {
                     className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
                   />
                 </div>
-                {/* <label className="block text-sm tracking-wide font-semibold mb-2">
-                  Phone Number
-                </label>
-                <div className="mb-3">
-                  <input
-                    type="number"
-                    name="phonenumber"
-                    onChange={e => setData({ ...data, phonenumber: e.target.value})}
-                    placeholder="contact number"
-                    required
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-200 text-gray-700 placeholder-gray-300 shadow-sm focus:outline-none focus:ring-blue-50"
-                  />
-                </div> */}
                 <span className="absolute flex cursor-pointer text-gray-500 right-5 bottom-3">
                 </span>
           </div>
-          {/* { isLoading && <Loader />} */}
-          {/* button submission */}
           <div className="submitBtn mt-2">
             <button
               type="submit"
@@ -142,7 +116,6 @@ function AddStudent() {
               Add record
             </button>
           </div>
-          {/* <span className='text-red-500 text-center flex flex-col rounded-md w-full font-bold text-xl p-2'>{error}</span> */}
         </form>
       </div>
     </div>

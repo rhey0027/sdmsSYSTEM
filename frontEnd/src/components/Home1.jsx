@@ -9,7 +9,7 @@ const Home1 = () => {
     navigate("/login");
   };
   const handleClearClick = () => {
-    navigate("/contact");
+    navigate("/studentlogin");
   };
   return (
     <>

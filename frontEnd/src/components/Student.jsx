@@ -12,6 +12,7 @@ function Student() {
     .then(res => {
       if(res.data.Status === 'Success')
       setData(res.data.Result)
+      //console.log('created successfully!')
     })
     .catch(err => console.log(err))
   })
@@ -39,6 +40,7 @@ function Student() {
             <tr>
               <th>Name</th>
               <th>Image</th>
+              <th>Course</th>
               <th>Email</th>
               <th>Action</th>
             </tr>
@@ -50,6 +52,7 @@ function Student() {
                 <td>{
                   <img src={`http://localhost:4000/images/`+ student.image} alt='photo' className='stud_photo'/>}
                 </td>
+                <td>{student.course}</td>
                 <td>{student.email}</td>
                 <td className='items-end'>
                   <Link to={`/studentUpdate/` + student.id}  className='bg-green-600 no-underline text-black rounded-md py-1 px-4'>edit
@@ -64,5 +67,4 @@ function Student() {
     </div>
   )
 }
-
 export default Student
