@@ -13,7 +13,7 @@ const app = express();
 app.use(cors(
   {
     origin:('http://localhost:3000'),
-    methods: ["POST", "GET", "PUT"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
   }
 ));
@@ -76,6 +76,24 @@ app.post('/login', (req, res) => {
     }
   })
 });
+
+//student login
+app.use('/studentlogin', (req, res)=> {
+  const sql = "SELECT * from student WHERE email = ?"
+  con1.query(sql, [req.body.email], (err, result) => {
+    if(err) return res.json({Status: 'Error', Error: 'User not found!'})
+    if(result.length > 0) {
+      const id = result[0].id;
+      const token = jwt.sign({ id }, 'jwt-code', { expiresIn: '1d'})
+      res.cookie('token', token);
+      return res.json({Status: 'Success', id: result[0].id})
+    }else{
+      return res.json({Status: 'Error', Error: 'Invalid email or password!'})
+    }
+  })
+
+
+});
 //get all records
 app.get('/getStudent', (req, res) => {
   const sql = 'SELECT * FROM student';
@@ -87,15 +105,16 @@ app.get('/getStudent', (req, res) => {
 
 //adding new student account and image
 app.post('/create',upload.single('image'), (req,res) => {
-  // console.log(req.file) 
-  // console.log(req.body)
-  const sql = 'INSERT INTO student(`name`, `email`, `password`,`image`) VALUES (?)';
+  //console.log(req.file) 
+   //console.log(req.body)
+  const sql = 'INSERT INTO student(`name`, `email`, `password`, `course`,`image`) VALUES (?)';
   bcrypt.hash(req.body.password.toString(), 10,(err, hash) => {
     if(err) return res.json({Error: 'Something went wrong'});
     const values = [
       req.body.name,
       req.body.email,
       hash,
+      req.body.course,
       req.file.filename
     ]
     con1.query(sql, [values], (err, result) => {
@@ -103,7 +122,6 @@ app.post('/create',upload.single('image'), (req,res) => {
       return res.json({Status: 'Success'})
     })
   })
-  //console.log(req.body)
 })
 //GET data for UPDATE
 app.get('/get/:id', (req, res) => {
